@@ -80,6 +80,54 @@ The dataset does not give a card ID for every transaction. Only explicit histori
 
 Savanna auto-start and auto-suspend should remain enabled. Credentials stay in `.env`; the console binds to loopback and should not be exposed publicly without authentication.
 
+## GitHub Upload Guide (Step-by-Step)
+
+Follow these steps to publish this repository to your GitHub account:
+
+### Step 1: Install & Authenticate GitHub CLI
+If you haven't logged in yet:
+```powershell
+gh auth login
+```
+Select **GitHub.com** -> **HTTPS** -> **Login with a web browser**. Enter the 8-digit device code provided in your browser and authorize the application.
+
+### Step 2: Create Remote Repository and Push
+Run the single command below from the project root directory:
+```powershell
+gh repo create casework-agent --public --source=. --remote=origin --push
+```
+*Alternatively, if you already created an empty repository on GitHub manually:*
+```powershell
+git remote add origin https://github.com/YOUR_USERNAME/casework-agent.git
+git branch -M master
+git push -u origin master
+```
+
+### Step 3: Verify Your Upload
+Check your remote repo status:
+```powershell
+git status
+git remote -v
+```
+
+---
+
+## Demo Video & Assets
+
+An edited, narrated 4.5-minute demo video is built and included in the repository:
+- **Video File**: [`docs/demo/casework-demo.mp4`](file:///d:/AIML/HHG_Task_4/docs/demo/casework-demo.mp4)
+- **Manifest**: [`docs/demo/video_manifest.json`](file:///d:/AIML/HHG_Task_4/docs/demo/video_manifest.json)
+- **Scenes & Narration**: 8 application walkthrough scenes covering uncertain trigger investigation, evidence request, policy routing, SAR draft generation, memory preservation, and multi-customer motif queries.
+
+To rebuild or re-narrate the demo video:
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/generate_audio.ps1
+python -m scripts.build_demo
+```
+
+---
+
 ## Attribution
 
 IEEE-CIS/Vesta dataset with challenge additions by TigerGraph. See the organizer-provided README for the authoritative benchmark and policy. Regulatory context is attributed in retrieved documents and the blog.
+
