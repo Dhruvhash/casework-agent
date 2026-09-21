@@ -104,7 +104,17 @@
       "graph_write_claim": true
     }
   ],
-  "video_files": [],
+  "video_files": [
+    "docs\\demo\\casework-demo.mp4",
+    "docs\\demo\\segments\\0.mp4",
+    "docs\\demo\\segments\\1.mp4",
+    "docs\\demo\\segments\\2.mp4",
+    "docs\\demo\\segments\\3.mp4",
+    "docs\\demo\\segments\\4.mp4",
+    "docs\\demo\\segments\\5.mp4",
+    "docs\\demo\\segments\\6.mp4",
+    "docs\\demo\\segments\\7.mp4"
+  ],
   "blog_draft_exists": true,
   "git_repository_exists": true,
   "note": "Live graph readback, publication links, hidden-label accuracy and complete UI progression require separate verification."
