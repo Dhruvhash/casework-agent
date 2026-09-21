@@ -1,0 +1,173 @@
+{
+  "started_at": "2026-09-19T17:17:07.610612+00:00",
+  "graph": "FraudInvestigation",
+  "before": {
+    "HHG_InvestigationCase": 0,
+    "HHG_ClosedCase": 5565,
+    "HHG_BillingRegion": 332,
+    "HHG_Card": 1917,
+    "HHG_Customer": 13553,
+    "HHG_Transaction": 590742,
+    "HHG_DeviceProfile": 9705,
+    "HHG_EmailDomain": 60,
+    "HHG_OWNS": 1917,
+    "HHG_OWNED_BY": 1917,
+    "HHG_HAS_TRANSACTION": 590742,
+    "HHG_TRANSACTION_OF": 590742,
+    "HHG_KNOWN_CARD_TRANSACTION": 14975,
+    "HHG_KNOWN_ON_CARD": 14975,
+    "HHG_NEXT_CUSTOMER_TRANSACTION": 577189,
+    "HHG_PREVIOUS_CUSTOMER_TRANSACTION": 577189,
+    "HHG_FROM_DEVICE": 140784,
+    "HHG_DEVICE_USED_FOR": 140784,
+    "HHG_HAS_EMAIL_DOMAIN": 531106,
+    "HHG_EMAIL_USED_FOR": 531106,
+    "HHG_BILLED_IN": 525003,
+    "HHG_REGION_OF_TRANSACTION": 525003,
+    "HHG_CLOSED_CASE_ON_CARD": 5565,
+    "HHG_CARD_IN_CLOSED_CASE": 5565,
+    "HHG_CLOSED_CASE_INVOLVES": 14955,
+    "HHG_TRANSACTION_IN_CLOSED_CASE": 14955,
+    "HHG_INVESTIGATION_OF": 0,
+    "HHG_INVESTIGATED_IN": 0,
+    "HHG_INVESTIGATION_FOR_CUSTOMER": 0,
+    "HHG_CUSTOMER_INVESTIGATION": 0
+  },
+  "expected": {
+    "HHG_Customer": 13553,
+    "HHG_Card": 1917,
+    "HHG_OWNS": 1917,
+    "HHG_Transaction": 590742,
+    "HHG_DeviceProfile": 9705,
+    "HHG_EmailDomain": 60,
+    "HHG_BillingRegion": 332,
+    "HHG_ClosedCase": 5565,
+    "HHG_CLOSED_CASE_ON_CARD": 5565,
+    "HHG_HAS_TRANSACTION": 590742,
+    "HHG_KNOWN_CARD_TRANSACTION": 14975,
+    "HHG_NEXT_CUSTOMER_TRANSACTION": 577189,
+    "HHG_FROM_DEVICE": 140784,
+    "HHG_HAS_EMAIL_DOMAIN": 531106,
+    "HHG_BILLED_IN": 525003,
+    "HHG_CLOSED_CASE_INVOLVES": 14955,
+    "HHG_OWNED_BY": 1917,
+    "HHG_TRANSACTION_OF": 590742,
+    "HHG_KNOWN_ON_CARD": 14975,
+    "HHG_PREVIOUS_CUSTOMER_TRANSACTION": 577189,
+    "HHG_DEVICE_USED_FOR": 140784,
+    "HHG_EMAIL_USED_FOR": 531106,
+    "HHG_REGION_OF_TRANSACTION": 525003,
+    "HHG_CARD_IN_CLOSED_CASE": 5565,
+    "HHG_TRANSACTION_IN_CLOSED_CASE": 14955
+  },
+  "source_rows": {
+    "customers": 13553,
+    "cards": 1917,
+    "transactions": 590742,
+    "devices": 9705,
+    "email_domains": 60,
+    "billing_regions": 332,
+    "closed_cases": 5565,
+    "customer_transaction_edges": 590742,
+    "known_card_transaction_edges": 14975,
+    "next_customer_transaction_edges": 577189,
+    "device_transaction_edges": 140784,
+    "email_transaction_edges": 531106,
+    "region_transaction_edges": 525003,
+    "closed_case_transaction_edges": 14955
+  },
+  "files": {
+    "customers": {
+      "rows": 13553,
+      "status": "previously_uploaded"
+    },
+    "cards": {
+      "rows": 1917,
+      "status": "previously_uploaded"
+    },
+    "transactions": {
+      "rows": 590742,
+      "status": "previously_uploaded"
+    },
+    "devices": {
+      "rows": 9705,
+      "status": "previously_uploaded"
+    },
+    "email_domains": {
+      "rows": 60,
+      "status": "previously_uploaded"
+    },
+    "billing_regions": {
+      "rows": 332,
+      "status": "previously_uploaded"
+    },
+    "closed_cases": {
+      "rows": 5565,
+      "status": "previously_uploaded"
+    },
+    "customer_transaction_edges": {
+      "rows": 590742,
+      "status": "previously_uploaded"
+    },
+    "known_card_transaction_edges": {
+      "rows": 14975,
+      "status": "previously_uploaded"
+    },
+    "next_customer_transaction_edges": {
+      "rows": 577189,
+      "status": "previously_uploaded"
+    },
+    "device_transaction_edges": {
+      "rows": 140784,
+      "status": "previously_uploaded"
+    },
+    "email_transaction_edges": {
+      "rows": 531106,
+      "status": "previously_uploaded"
+    },
+    "region_transaction_edges": {
+      "rows": 525003,
+      "status": "previously_uploaded"
+    },
+    "closed_case_transaction_edges": {
+      "rows": 14955,
+      "status": "previously_uploaded"
+    }
+  },
+  "verified": true,
+  "after": {
+    "HHG_InvestigationCase": 0,
+    "HHG_ClosedCase": 5565,
+    "HHG_BillingRegion": 332,
+    "HHG_Card": 1917,
+    "HHG_Customer": 13553,
+    "HHG_Transaction": 590742,
+    "HHG_DeviceProfile": 9705,
+    "HHG_EmailDomain": 60,
+    "HHG_OWNS": 1917,
+    "HHG_OWNED_BY": 1917,
+    "HHG_HAS_TRANSACTION": 590742,
+    "HHG_TRANSACTION_OF": 590742,
+    "HHG_KNOWN_CARD_TRANSACTION": 14975,
+    "HHG_KNOWN_ON_CARD": 14975,
+    "HHG_NEXT_CUSTOMER_TRANSACTION": 577189,
+    "HHG_PREVIOUS_CUSTOMER_TRANSACTION": 577189,
+    "HHG_FROM_DEVICE": 140784,
+    "HHG_DEVICE_USED_FOR": 140784,
+    "HHG_HAS_EMAIL_DOMAIN": 531106,
+    "HHG_EMAIL_USED_FOR": 531106,
+    "HHG_BILLED_IN": 525003,
+    "HHG_REGION_OF_TRANSACTION": 525003,
+    "HHG_CLOSED_CASE_ON_CARD": 5565,
+    "HHG_CARD_IN_CLOSED_CASE": 5565,
+    "HHG_CLOSED_CASE_INVOLVES": 14955,
+    "HHG_TRANSACTION_IN_CLOSED_CASE": 14955,
+    "HHG_INVESTIGATION_OF": 0,
+    "HHG_INVESTIGATED_IN": 0,
+    "HHG_INVESTIGATION_FOR_CUSTOMER": 0,
+    "HHG_CUSTOMER_INVESTIGATION": 0
+  },
+  "count_errors": {},
+  "samples_checked": 47,
+  "finished_at": "2026-09-19T17:17:20.745152+00:00"
+}

@@ -1,0 +1,111 @@
+{
+  "case_files": 20,
+  "validated_with_trace": 20,
+  "required": 20,
+  "cases": [
+    {
+      "case_id": "HHG-001",
+      "errors": [],
+      "graph_write_claim": true
+    },
+    {
+      "case_id": "HHG-002",
+      "errors": [],
+      "graph_write_claim": true
+    },
+    {
+      "case_id": "HHG-003",
+      "errors": [],
+      "graph_write_claim": true
+    },
+    {
+      "case_id": "HHG-004",
+      "errors": [],
+      "graph_write_claim": true
+    },
+    {
+      "case_id": "HHG-005",
+      "errors": [],
+      "graph_write_claim": true
+    },
+    {
+      "case_id": "HHG-006",
+      "errors": [],
+      "graph_write_claim": true
+    },
+    {
+      "case_id": "HHG-007",
+      "errors": [],
+      "graph_write_claim": true
+    },
+    {
+      "case_id": "HHG-008",
+      "errors": [],
+      "graph_write_claim": true
+    },
+    {
+      "case_id": "HHG-009",
+      "errors": [],
+      "graph_write_claim": true
+    },
+    {
+      "case_id": "HHG-010",
+      "errors": [],
+      "graph_write_claim": true
+    },
+    {
+      "case_id": "HHG-011",
+      "errors": [],
+      "graph_write_claim": true
+    },
+    {
+      "case_id": "HHG-012",
+      "errors": [],
+      "graph_write_claim": true
+    },
+    {
+      "case_id": "HHG-013",
+      "errors": [],
+      "graph_write_claim": true
+    },
+    {
+      "case_id": "HHG-014",
+      "errors": [],
+      "graph_write_claim": true
+    },
+    {
+      "case_id": "HHG-015",
+      "errors": [],
+      "graph_write_claim": true
+    },
+    {
+      "case_id": "HHG-016",
+      "errors": [],
+      "graph_write_claim": true
+    },
+    {
+      "case_id": "HHG-017",
+      "errors": [],
+      "graph_write_claim": true
+    },
+    {
+      "case_id": "HHG-018",
+      "errors": [],
+      "graph_write_claim": true
+    },
+    {
+      "case_id": "HHG-019",
+      "errors": [],
+      "graph_write_claim": true
+    },
+    {
+      "case_id": "HHG-020",
+      "errors": [],
+      "graph_write_claim": true
+    }
+  ],
+  "video_files": [],
+  "blog_draft_exists": true,
+  "git_repository_exists": true,
+  "note": "Live graph readback, publication links, hidden-label accuracy and complete UI progression require separate verification."
+}

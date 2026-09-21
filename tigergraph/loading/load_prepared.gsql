@@ -1,0 +1,32 @@
+CREATE LOADING JOB HHG_LoadPrepared_v1 FOR GRAPH FraudInvestigation {
+  DEFINE FILENAME customers;
+  DEFINE FILENAME cards;
+  DEFINE FILENAME transactions;
+  DEFINE FILENAME devices;
+  DEFINE FILENAME email_domains;
+  DEFINE FILENAME billing_regions;
+  DEFINE FILENAME closed_cases;
+  DEFINE FILENAME customer_transaction_edges;
+  DEFINE FILENAME known_card_transaction_edges;
+  DEFINE FILENAME next_customer_transaction_edges;
+  DEFINE FILENAME device_transaction_edges;
+  DEFINE FILENAME email_transaction_edges;
+  DEFINE FILENAME region_transaction_edges;
+  DEFINE FILENAME closed_case_transaction_edges;
+  LOAD customers TO VERTEX HHG_Customer VALUES ($"customer_id") USING JSON_FILE="true";
+  LOAD cards TO VERTEX HHG_Card VALUES ($"card_id") USING JSON_FILE="true";
+  LOAD cards TO EDGE HHG_OWNS VALUES ($"customer_id", $"card_id") USING JSON_FILE="true";
+  LOAD transactions TO VERTEX HHG_Transaction VALUES ($"txn_id", $"ts", $"amount_usd", $"channel", $"risk_score", $"product_code", $"issuer_code_card1", $"billing_region", $"p_emaildomain", $"r_emaildomain", $"source_transaction_id") USING JSON_FILE="true";
+  LOAD devices TO VERTEX HHG_DeviceProfile VALUES ($"device_id", $"profile") USING JSON_FILE="true";
+  LOAD email_domains TO VERTEX HHG_EmailDomain VALUES ($"email_domain") USING JSON_FILE="true";
+  LOAD billing_regions TO VERTEX HHG_BillingRegion VALUES ($"billing_region") USING JSON_FILE="true";
+  LOAD closed_cases TO VERTEX HHG_ClosedCase VALUES ($"case_id", $"outcome", $"pattern", $"exposure_usd", $"analyst_notes") USING JSON_FILE="true";
+  LOAD closed_cases TO EDGE HHG_CLOSED_CASE_ON_CARD VALUES ($"case_id", $"card_id") USING JSON_FILE="true";
+  LOAD customer_transaction_edges TO EDGE HHG_HAS_TRANSACTION VALUES ($"customer_id", $"txn_id") USING JSON_FILE="true";
+  LOAD known_card_transaction_edges TO EDGE HHG_KNOWN_CARD_TRANSACTION VALUES ($"card_id", $"txn_id", $"provenance") USING JSON_FILE="true";
+  LOAD next_customer_transaction_edges TO EDGE HHG_NEXT_CUSTOMER_TRANSACTION VALUES ($"prior_txn_id", $"next_txn_id") USING JSON_FILE="true";
+  LOAD device_transaction_edges TO EDGE HHG_FROM_DEVICE VALUES ($"txn_id", $"device_id", $"device_new", $"proxy_type") USING JSON_FILE="true";
+  LOAD email_transaction_edges TO EDGE HHG_HAS_EMAIL_DOMAIN VALUES ($"txn_id", $"email_domain", $"role") USING JSON_FILE="true";
+  LOAD region_transaction_edges TO EDGE HHG_BILLED_IN VALUES ($"txn_id", $"billing_region") USING JSON_FILE="true";
+  LOAD closed_case_transaction_edges TO EDGE HHG_CLOSED_CASE_INVOLVES VALUES ($"case_id", $"txn_id") USING JSON_FILE="true";
+}

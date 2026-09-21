@@ -1,0 +1,146 @@
+{
+  "response_scenario": "pending",
+  "completed": [
+    {
+      "case_id": "HHG-017",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 2535,
+      "tool_calls": 9
+    },
+    {
+      "case_id": "HHG-015",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 2586,
+      "tool_calls": 9
+    },
+    {
+      "case_id": "HHG-006",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 2807,
+      "tool_calls": 9
+    },
+    {
+      "case_id": "HHG-014",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 3500,
+      "tool_calls": 9
+    },
+    {
+      "case_id": "HHG-002",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 2750,
+      "tool_calls": 9
+    },
+    {
+      "case_id": "HHG-018",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 2587,
+      "tool_calls": 9
+    },
+    {
+      "case_id": "HHG-019",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 2724,
+      "tool_calls": 9
+    },
+    {
+      "case_id": "HHG-010",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 2722,
+      "tool_calls": 9
+    },
+    {
+      "case_id": "HHG-020",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 2877,
+      "tool_calls": 9
+    },
+    {
+      "case_id": "HHG-001",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 2505,
+      "tool_calls": 9
+    },
+    {
+      "case_id": "HHG-007",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 2715,
+      "tool_calls": 9
+    },
+    {
+      "case_id": "HHG-005",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 2511,
+      "tool_calls": 9
+    },
+    {
+      "case_id": "HHG-013",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 2481,
+      "tool_calls": 9
+    },
+    {
+      "case_id": "HHG-003",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 2683,
+      "tool_calls": 9
+    },
+    {
+      "case_id": "HHG-016",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 2810,
+      "tool_calls": 9
+    },
+    {
+      "case_id": "HHG-012",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 2783,
+      "tool_calls": 9
+    },
+    {
+      "case_id": "HHG-008",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 2821,
+      "tool_calls": 9
+    },
+    {
+      "case_id": "HHG-009",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 2802,
+      "tool_calls": 9
+    },
+    {
+      "case_id": "HHG-011",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 2830,
+      "tool_calls": 9
+    },
+    {
+      "case_id": "HHG-004",
+      "verdict": "uncertain",
+      "written_to_graph": true,
+      "tokens": 2835,
+      "tool_calls": 9
+    }
+  ],
+  "failures": []
+}

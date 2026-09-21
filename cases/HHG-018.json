@@ -1,0 +1,177 @@
+{
+  "case_id": "HHG-018",
+  "case": {
+    "status": "open",
+    "verdict": "uncertain",
+    "fraud_probability": 0.15,
+    "pattern": "none",
+    "pattern_description": "",
+    "affected_txn_ids": [
+      "3491361"
+    ],
+    "first_suspicious_txn_id": "3491361",
+    "connected_card_ids": [],
+    "connected_device_profiles": [],
+    "exposure_usd": 39.08,
+    "evidence": [
+      {
+        "claim": "Flagged in_person transaction is $39.08 at 2016-11-27 13:41:26; the risk score is a trigger only.",
+        "source": "graph",
+        "ref": "query:as_of_context/trigger",
+        "entity_ids": [
+          "3491361"
+        ]
+      },
+      {
+        "claim": "5770 customer transactions predate the 48-hour episode; baseline median amount is 83.945, and most frequent region is 325.0. Card attribution is limited to explicit known-card edges.",
+        "source": "graph",
+        "ref": "query:as_of_context/history",
+        "entity_ids": [
+          "C02354"
+        ]
+      },
+      {
+        "claim": "Signals: unusual amount=False, new product=False, unseen region=False, new device=False, card testing=False. These are hypotheses; merchant and settlement information are absent.",
+        "source": "graph",
+        "ref": "query:as_of_context/known+devices",
+        "entity_ids": [
+          "3491361",
+          "C02354-K2"
+        ]
+      },
+      {
+        "claim": "There are 0 transactions sharing the trigger's device profile within the preceding 48 hours. A shared profile alone does not establish shared fraud.",
+        "source": "graph",
+        "ref": "query:as_of_context/neighbors",
+        "entity_ids": []
+      },
+      {
+        "claim": "Case CC-1953: cardholder C07648 reported unrecognized activity on card C07648-K2. 1 transaction(s) between 2016-08-10 and 2016-08-10 totaling $33.95 were confirmed fraudulent. Card-present use in a billing region the cardholder had no history in, while the cardholder retained the card. Card blocked and reissued. Customer reimbursed.",
+        "source": "document",
+        "ref": "closed_cases_history.csv / CC-1953",
+        "entity_ids": [
+          "CC-1953"
+        ]
+      },
+      {
+        "claim": "Case CC-1957: cardholder C08348 reported unrecognized activity on card C08348-K1. 2 transaction(s) between 2016-08-09 and 2016-08-09 totaling $342.14 were confirmed fraudulent. Card-present use in a billing region the cardholder had no history in, while the cardholder retained the card. Card blocked and reissued. Customer reimbursed.",
+        "source": "document",
+        "ref": "closed_cases_history.csv / CC-1957",
+        "entity_ids": [
+          "CC-1957"
+        ]
+      },
+      {
+        "claim": "Case CC-3757: cardholder C07185 reported unrecognized activity on card C07185-K2. 19 transaction(s) between 2016-09-14 and 2016-09-20 totaling $1,113.32 were confirmed fraudulent. Card-present use in a billing region the cardholder had no history in, while the cardholder retained the card. Card blocked and reissued. Customer reimbursed.",
+        "source": "document",
+        "ref": "closed_cases_history.csv / CC-3757",
+        "entity_ids": [
+          "CC-3757"
+        ]
+      },
+      {
+        "claim": "Case CC-1904: cardholder C00956 reported unrecognized activity on card C00956-K1. 1 transaction(s) between 2016-08-08 and 2016-08-08 totaling $96.94 were confirmed fraudulent. Card-present use in a billing region the cardholder had no history in, while the cardholder retained the card. Card blocked and reissued. Customer reimbursed.",
+        "source": "document",
+        "ref": "closed_cases_history.csv / CC-1904",
+        "entity_ids": [
+          "CC-1904"
+        ]
+      },
+      {
+        "claim": "## The columns we added\n\n| Column | Meaning |\n|---|---|\n| `customer_id` | e.g. `C01234`. Derived from the card issuer field; one customer can have several cards. Card IDs in the cases look like `C01234-K1` |\n| `ts` | Real timestamp, `YYYY-MM-DD HH:MM:SS`, from July 2 to December 31, 2016 |\n| `channel` | `in_person` or `online` |\n| `risk_score` | 0 to 1 from the bank's detection model. **An input, not an answer.** Above 0.7, most flagged transactions turn out to be legitimate. Some fraud scores near zero |\n\n`TransactionID`, `card1`, `TransactionDT`, and `TransactionAmt` were disguised (new IDs, small time and amount offsets) so answers cannot be looked up in the public file. Everything else is untouched.\n\n",
+        "source": "document",
+        "ref": "dataset README: ## The columns we added / POLICY-007",
+        "entity_ids": []
+      },
+      {
+        "claim": "## The case pack\n\n`case_id`, `opened_at`, `trigger_type` (`risk_score` / `customer_report` / `analyst_request`), `trigger_text`, `flagged_txn_id`, `card_id`, `customer_id`, `risk_score` (filled only for risk-score triggers)\n\nThe flagged transaction is where the alert fired. It is not necessarily where the fraud started, and it may not be fraud at all.\n\n",
+        "source": "document",
+        "ref": "dataset README: ## The case pack / POLICY-009",
+        "entity_ids": []
+      },
+      {
+        "claim": "## `closed_cases_history.csv`\n\n`case_id`, `customer_id`, `card_id`, `opened_at`, `closed_at`, `outcome` (`confirmed_fraud` / `cleared`), `pattern`, `first_fraud_txn_id`, `txn_ids` (pipe-separated), `n_txns`, `exposure_usd`, `connected_card_ids`, `actions_taken`, `report_filed`, `analyst_notes`\n\nPatterns are the five below, plus `undocumented` for a few cases the analysts confirmed as fraud but could not match to a known pattern. Read those notes carefully. Cleared cases have `pattern` = `none` and say why the alert was a false alarm.\n\nThis file is both your labeled history and your agent's starting memory: retrieve similar past cases when a new alert resembles an old one, cite them in `similar_prior_cases`, and add your own cases to the graph as you close them.\n\n",
+        "source": "document",
+        "ref": "dataset README: ## `closed_cases_history.csv` / POLICY-008",
+        "entity_ids": []
+      },
+      {
+        "claim": "Generated memory (not confirmed ground truth): Transaction 3476682 on C07297-K1 is assessed as uncertain using as-of customer and proven card history. The investigation found 3 anomaly signals and $482.12 episode exposure. No reply is assumed. Verification remains pending; no contact was actually sent. Recommendations are governed by the hackathon policy; no banking action or regulatory filing has been executed.",
+        "source": "document",
+        "ref": "generated investigation HHG-006 / INV-HHG-006-c97c6c1e83a7b635",
+        "entity_ids": [
+          "HHG-006"
+        ]
+      },
+      {
+        "claim": "Generated memory (not confirmed ground truth): Transaction 3478782 on C11891-K1 is assessed as uncertain using as-of customer and proven card history. The investigation found 1 anomaly signals and $292.36 episode exposure. No reply is assumed. Verification remains pending; no contact was actually sent. Recommendations are governed by the hackathon policy; no banking action or regulatory filing has been executed.",
+        "source": "document",
+        "ref": "generated investigation HHG-002 / INV-HHG-002-de01d1763b1c2cb5",
+        "entity_ids": [
+          "HHG-002"
+        ]
+      },
+      {
+        "claim": "No reply is assumed. Verification remains pending; no contact was actually sent.",
+        "source": "external",
+        "ref": "evidence_request:1",
+        "entity_ids": []
+      }
+    ],
+    "similar_prior_cases": [
+      "CC-1953",
+      "CC-1957",
+      "CC-3757",
+      "CC-1904"
+    ],
+    "summary": "Transaction 3491361 on C02354-K2 is assessed as uncertain using as-of customer and proven card history. The investigation found 0 anomaly signals and $39.08 episode exposure. No reply is assumed. Verification remains pending; no contact was actually sent. Recommendations are governed by the hackathon policy; no banking action or regulatory filing has been executed.",
+    "written_to_graph": true,
+    "graph_case_id": "HHG-018"
+  },
+  "evidence_requests": [
+    {
+      "type": "customer_validation",
+      "asked_after_step": 4,
+      "assumed_response": "No reply is assumed. Verification remains pending; no contact was actually sent."
+    }
+  ],
+  "next_best_actions": {
+    "initial": [
+      {
+        "action": "VERIFY_WITH_CUSTOMER",
+        "route": "auto",
+        "reason": "R1/section 5: evidence does not settle authorization; request customer validation before blocking."
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "3a: investigation requests evidence, handles a dispute, or has probability at least 0.30."
+      }
+    ],
+    "final": [
+      {
+        "action": "VERIFY_WITH_CUSTOMER",
+        "route": "auto",
+        "reason": "R1/section 5: evidence does not settle authorization; request customer validation before blocking."
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "3a: investigation requests evidence, handles a dispute, or has probability at least 0.30."
+      }
+    ],
+    "what_changed": "nothing"
+  },
+  "sar": {
+    "file": false,
+    "reason": "Section 3a: confirmed/strongly suspected fraud plus a qualifying exposure or evidenced shared-abuse condition has not been established.",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0,
+    "activity_dates": []
+  },
+  "stop_reason": "Available graph and document evidence has been exhausted; additional retrieval is unlikely to settle authorization. Verification remains pending, with escalation when R8 requires it.",
+  "tool_calls": 9,
+  "tokens": 2587,
+  "latency_s": 58.296
+}

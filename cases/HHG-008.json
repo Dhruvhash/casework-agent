@@ -1,0 +1,179 @@
+{
+  "case_id": "HHG-008",
+  "case": {
+    "status": "open",
+    "verdict": "uncertain",
+    "fraud_probability": 0.15,
+    "pattern": "none",
+    "pattern_description": "",
+    "affected_txn_ids": [
+      "3558054"
+    ],
+    "first_suspicious_txn_id": "3558054",
+    "connected_card_ids": [],
+    "connected_device_profiles": [],
+    "exposure_usd": 55.68,
+    "evidence": [
+      {
+        "claim": "Flagged online transaction is $55.68 at 2016-12-19 22:08:56; the risk score is a trigger only.",
+        "source": "graph",
+        "ref": "query:as_of_context/trigger",
+        "entity_ids": [
+          "3558054"
+        ]
+      },
+      {
+        "claim": "887 customer transactions predate the 48-hour episode; baseline median amount is 39.36, and most frequent region is 284.0. Card attribution is limited to explicit known-card edges.",
+        "source": "graph",
+        "ref": "query:as_of_context/history",
+        "entity_ids": [
+          "C13171"
+        ]
+      },
+      {
+        "claim": "Signals: unusual amount=False, new product=False, unseen region=False, new device=False, card testing=False. These are hypotheses; merchant and settlement information are absent.",
+        "source": "graph",
+        "ref": "query:as_of_context/known+devices",
+        "entity_ids": [
+          "3558054",
+          "C13171-K2"
+        ]
+      },
+      {
+        "claim": "There are 65 transactions sharing the trigger's device profile within the preceding 48 hours. A shared profile alone does not establish shared fraud.",
+        "source": "graph",
+        "ref": "query:as_of_context/neighbors",
+        "entity_ids": [
+          "D-f79e5d190de9952f8507"
+        ]
+      },
+      {
+        "claim": "Case CC-0238: cardholder C07508 reported unrecognized activity on card C07508-K2. 11 transaction(s) between 2016-07-03 and 2016-07-07 totaling $617.74 were confirmed fraudulent. Online purchases from a device not previously seen on this account, inconsistent with the cardholder's history. Online transactions came from a BLL-L23 Build/HUAWEIBLL-L23 on chrome 62.0 for android. Card blocked and reissued. Customer reimbursed.",
+        "source": "document",
+        "ref": "closed_cases_history.csv / CC-0238",
+        "entity_ids": [
+          "CC-0238"
+        ]
+      },
+      {
+        "claim": "Case CC-4092: cardholder C09791 reported unrecognized activity on card C09791-K1. 1 transaction(s) between 2016-09-28 and 2016-09-28 totaling $22.36 were confirmed fraudulent. Online purchases from a device not previously seen on this account, inconsistent with the cardholder's history. Online transactions came from a SM-A300H Build/LRX22G on chrome 64.0 for android. Card blocked and reissued. Customer reimbursed.",
+        "source": "document",
+        "ref": "closed_cases_history.csv / CC-4092",
+        "entity_ids": [
+          "CC-4092"
+        ]
+      },
+      {
+        "claim": "Case CC-1948: cardholder C05381 reported unrecognized activity on card C05381-K2. 26 transaction(s) between 2016-08-01 and 2016-08-09 totaling $697.67 were confirmed fraudulent. Online purchases from a device not previously seen on this account, inconsistent with the cardholder's history. Online transactions came from a SM-A300H Build/LRX22G on chrome 63.0 for android. Card blocked and reissued. Customer reimbursed.",
+        "source": "document",
+        "ref": "closed_cases_history.csv / CC-1948",
+        "entity_ids": [
+          "CC-1948"
+        ]
+      },
+      {
+        "claim": "Case CC-0598: cardholder C07990 reported unrecognized activity on card C07990-K1. 1 transaction(s) between 2016-07-15 and 2016-07-15 totaling $7.14 were confirmed fraudulent. Online purchases from a device not previously seen on this account, inconsistent with the cardholder's history. Online transactions came from a 5025G Build/LMY47I on chrome 62.0 for android. Card blocked and reissued. Customer reimbursed.",
+        "source": "document",
+        "ref": "closed_cases_history.csv / CC-0598",
+        "entity_ids": [
+          "CC-0598"
+        ]
+      },
+      {
+        "claim": "## The case pack\n\n`case_id`, `opened_at`, `trigger_type` (`risk_score` / `customer_report` / `analyst_request`), `trigger_text`, `flagged_txn_id`, `card_id`, `customer_id`, `risk_score` (filled only for risk-score triggers)\n\nThe flagged transaction is where the alert fired. It is not necessarily where the fraud started, and it may not be fraud at all.\n\n",
+        "source": "document",
+        "ref": "dataset README: ## The case pack / POLICY-009",
+        "entity_ids": []
+      },
+      {
+        "claim": "# The 20 Cases\n\nAlso available as `case_pack.csv` in this folder.\n\n| Case | Opened | Trigger | Flagged txn | Card | Customer | Score | Trigger text |\n|---|---|---|---|---|---|---|---|\n| HHG-001 | 2016-12-05 01:55:28 | risk_score | 3514030 | C12382-K1 | C12382 | 0.61 | Real-time model scored transaction 3514030 ($77.07, in billing region 444.0) at 0.61. Review and decide. |\n| HHG-002 | 2016-11-22 23:27:07 | risk_score | 3478782 | C11891-K1 | C11891 | 0.79 | Real-time model scored transaction 3478782 ($292.36, online) at 0.79. Review and decide. |\n| HHG-003 | 2016-12-10 15:01:21 | customer_report | 3530164 | C08623-K2 | C08623 | \u2014 | Customer C08623 message: 'I never made this $49.00 purchase. Please check my card.' Refers to 3530164. |\n| HHG-004 | 2016-12-29 07:53:54 | customer_report | 3583227 | C08106-K1 | C08106 | \u2014 | Customer C08106 message: 'I never made this $128.33 purchase. Please check my card.' Refers to 3583227. |\n| HHG-005 | 2016-12-08 03:38:37 | risk_score | 3523199 | C02923-K1 | C02923 | 0.54 | Real-time model scored transaction 3523199 ($100.07, online) at 0.54. Review and decide. |\n| HHG-006 | 2016-11-22 02:30:00 | customer_report | 3476682 | C07297-K1 | C07297 | \u2014 | Customer C07297 message: 'I never made this $482.12 purchase. Please check my card.' Refers to 3476682. |\n| HHG-007 | 2016-12-05 03:46:14 | risk_score | 3514948 | C09933-K2 | C09933 | 0.87 | Real-time model scored transaction 3514948 ($111.92, in billing region 264.0) at 0.87. Review and decide. |\n| HHG-008 | 2016-12-20 03:08:56 | customer_report | 3558054 | C13171-K2 | C13171 | \u2014 | Customer C13171 message: 'I never made this $55.68 purchase. Please check my card.' Refers to 3558054. |\n| HHG-009 | 2016-12-28 17:10:53 | customer_report | 3581141 | C08299-K1 | C08299 | \u2014 | Customer C08299 message: 'I never made this $30.02 purchase. Please check my card.' Refers to 3581141. |\n| HHG-010 | 2016-12-02 18:18:27 | risk_score | 3506725 | C10434-K1 | C10434 | 0.90 | Real-time model scored transaction 3506725 ($1,000.03, online) at 0.90. Review and decide. |\n| HHG-011 | 2016-12-29 06:27:44 | customer_report | 3583368 | C11923-K2 | C11923 | \u2014 | Customer C11923 message: 'I never made this $131.30 purchase. Please check my card.' Refers to 3583368. |\n| HHG-012 | 2016-12-18 05:00:31 | risk_score | 3553342 | C05876-K2 | C05876 | 0.55 | Real-time model scored transaction 3553342 ($30.91, in billing region 494.0) at 0.55. Review and decide. |\n| HHG-013 | 2016-12-09 05:39:29 | risk_score | 3526826 | C07671-K2 | C07671 | 0.76 | Real-time model scored transaction 3526826 ($35.66, online) at 0.76. Review and decide. |\n| HHG-014 | 2016-11-22 20:11:00 | analyst_request | 3478561 | C13487-K1 | C13487 | \u2014 | Analyst request: several cards this month show purchases from the same unusual device profile. Review transaction 3478561 on card C13487-K1 and look for related activity. |\n| HHG-015 | 2016-11-17 19:03:36 | risk_score | 3464869 | C03042-K1 | C03042 | 0.77 | Real-time model scored transaction 3464869 ($599.94, online) at 0.77. Review and decide. |\n| HHG-016 | 2016-12-12 01:39:08 | customer_report | 3534820 | C09988-K1 | C09988 | \u2014 | Customer C09988 message: 'I never made this $59.67 purchase. Please check my card.' Refers to 3534820. |\n| HHG-017 | 2016-11-12 00:46:24 | risk_score | 3450629 | C04570-K1 | C04570 | 0.57 | Real-time model scored transaction 3450629 ($100.09, online) at 0.57. Review and decide. |\n| HHG-018 | 2016-11-27 14:41:26 | customer_report | 3491361 | C02354-K2 | C02354 | \u2014 | Customer C02354 message: 'I never made this $39.08 purchase. Please check my card.' Refers to 3491361. |\n| HHG-019 | 2016-12-01 22:28:53 | risk_score | 3503878 | C07987-K2 | C07987 | 0.90 | Real-time model scored transaction 3503878 ($99.92, online) at 0.90. Review and decide. |\n| HHG-020 | 2016-12-03 12:04:26 | risk_score | 3509359 | C12265-K2 | C12265 | 0.52 | Real-time model scored transaction 3509359 ($125.08, online) at 0.52. Review and decide. |\n",
+        "source": "document",
+        "ref": "dataset README: # The 20 Cases / POLICY-032",
+        "entity_ids": []
+      },
+      {
+        "claim": "### Example\n\n```json\n{\n  \"case_id\": \"HHG-017\",\n  \"case\": {\n    \"status\": \"closed_fraud\",\n    \"verdict\": \"fraud\",\n    \"fraud_probability\": 0.86,\n    \"pattern\": \"card_testing\",\n    \"pattern_description\": \"\",\n    \"affected_txn_ids\": [\"T0412877\", \"T0412878\", \"T0412879\", \"T0412883\"],\n    \"first_suspicious_txn_id\": \"T0412877\",\n    \"connected_card_ids\": [\"C00877-K1\"],\n    \"connected_device_profiles\": [\"SAMSUNG SM-G892A Build/NRD90M | Android 7.0 | samsung browser 6.2 | 2220x1080\"],\n    \"exposure_usd\": 268.43,\n    \"evidence\": [\n      {\n        \"claim\": \"Three online authorizations under $3 within 40 minutes, then a $259 purchase under a product code this card has never used\",\n        \"source\": \"graph\",\n        \"ref\": \"query:card_window(card_id=C00377-K1, hours=2)\",\n        \"entity_ids\": [\"T0412877\", \"T0412878\", \"T0412879\", \"T0412883\"]\n      },\n      {\n        \"claim\": \"All four came from a device profile marked New for this account (Android 7.0, Chrome for Android, 1920x1080), seen on closed case CC-0141 and on card C00877-K1 this month\",\n        \"source\": \"graph\",\n        \"ref\": \"query:device_neighbors(device_id=D000731)\",\n        \"entity_ids\": [\"CC-0141\", \"C00877-K1\"]\n      },\n      {\n        \"claim\": \"Customer denied the purchases when asked\",\n        \"source\": \"customer\",\n        \"ref\": \"evidence_request:1\",\n        \"entity_ids\": []\n      }\n    ],\n    \"similar_prior_cases\": [\"CC-0141\"],\n    \"summary\": \"Textbook card testing: three sub-$3 online authorizations in 40 minutes, then a $259 purchase in a category the cardholder has never used. All four share a device profile marked New for this account, which appears on a closed case from August and on another card this month. Customer denied the activity. Card compromised; a second card is likely compromised through the same device.\",\n    \"written_to_graph\": true,\n    \"graph_case_id\": \"CASE-2016-1187\"\n  },\n  \"evidence_requests\": [\n    { \"type\": \"customer_validation\", \"asked_after_step\": 4, \"assumed_response\": \"Customer states they did not make these purchases and still has the card\" }\n  ],\n  \"next_best_actions\": {\n    \"initial\": [\n      { \"action\": \"DECLINE_TRANSACTION\", \"route\": \"L1\", \"reason\": \"R5: testing sequence observed, purchase already cleared\" },\n      { \"action\": \"VERIFY_WITH_CUSTOMER\", \"route\": \"auto\", \"reason\": \"R1: probability 0.72 on pattern alone, confirm before blocking\" }\n    ],\n    \"final\": [\n      { \"action\": \"BLOCK_CARD\", \"route\": \"L1\", \"reason\": \"R2 and R5: customer denied; exposure $268 is under $2,500\" },\n      { \"action\": \"CREATE_CASE\", \"route\": \"auto\", \"reason\": \"R2\" },\n      { \"action\": \"FILE_REPORT\", \"route\": \"L2\", \"reason\": \"R2: shared device links this to another compromised card\" },\n      { \"action\": \"MONITOR_CONNECTED_CARDS\", \"route\": \"auto\", \"reason\": \"Same device profile also used on C00877-K1\" }\n    ],\n    \"what_changed\": \"Customer denial raised probability from 0.72 to 0.86 and confirmed the block. The shared device profile with C00877-K1 triggers a report and monitoring of the connected card.\"\n  },\n  \"sar\": {\n    \"file\": true,\n    \"reason\": \"R2: confirmed unauthorized use linked by a shared device to a second compromised card\",\n    \"narrative\": \"On 2016-11-14 between 09:12 and 09:52, card C00377-K1 belonging to customer C00377 was used for three online authorizations of $1.10, $2.40, and $0.95 followed at 10:31 by a $259.98 online purchase under a product code the cardholder had never used. All four transactions came from a device profile marked New for this account, previously recorded on closed case CC-0141 (confirmed fraud, August 2016) and on card C00877-K1 on 2016-11-12. The cardholder, contacted the same day, stated they did not make these purchases and remained in possession of the card. The sequence of small authorizations followed by a larger purchase is consistent with testing of a stolen card number prior to use. The shared device indicates a common actor across at least two cardholders. Total unauthorized amount: $268.43. Card blocked and scheduled for reissue; card C00877-K1 placed under monitoring.\",\n    \"subjects\": [\"C00377\", \"C00377-K1\", \"C00877-K1\"],\n    \"total_amount_usd\": 268.43,\n    \"activity_dates\": [\"2016-11-14\", \"2016-11-14\"]\n  },\n  \"stop_reason\": \"Customer denial settled the verdict; device link identified and connected card protected. Further steps would not change the actions.\",\n  \"tool_calls\": 9,\n  \"tokens\": 12480,\n  \"latency_s\": 18.7\n}\n```\n\n",
+        "source": "document",
+        "ref": "dataset README: ### Example / POLICY-030",
+        "entity_ids": []
+      },
+      {
+        "claim": "Generated memory (not confirmed ground truth): Transaction 3506725 on C10434-K1 is assessed as fraud using as-of customer and proven card history. The investigation found 2 anomaly signals and $1000.03 episode exposure. SIMULATION: customer denies the flagged activity. This reply is assumed, not supplied by the dataset. Recommendations are governed by the hackathon policy; no banking action or regulatory filing has been executed.",
+        "source": "document",
+        "ref": "generated investigation HHG-010 / INV-HHG-010-d450f3e141a8a09f",
+        "entity_ids": [
+          "HHG-010"
+        ]
+      },
+      {
+        "claim": "Generated memory (not confirmed ground truth): Transaction 3476682 on C07297-K1 is assessed as legitimate using as-of customer and proven card history. The investigation found 3 anomaly signals and $0.00 episode exposure. SIMULATION: customer confirms the flagged activity. This reply is assumed, not supplied by the dataset. Recommendations are governed by the hackathon policy; no banking action or regulatory filing has been executed.",
+        "source": "document",
+        "ref": "generated investigation HHG-006 / INV-HHG-006-bdf84f1c97a3990e",
+        "entity_ids": [
+          "HHG-006"
+        ]
+      },
+      {
+        "claim": "No reply is assumed. Verification remains pending; no contact was actually sent.",
+        "source": "external",
+        "ref": "evidence_request:1",
+        "entity_ids": []
+      }
+    ],
+    "similar_prior_cases": [
+      "CC-0238",
+      "CC-4092",
+      "CC-1948",
+      "CC-0598"
+    ],
+    "summary": "Transaction 3558054 on C13171-K2 is assessed as uncertain using as-of customer and proven card history. The investigation found 0 anomaly signals and $55.68 episode exposure. No reply is assumed. Verification remains pending; no contact was actually sent. Recommendations are governed by the hackathon policy; no banking action or regulatory filing has been executed.",
+    "written_to_graph": true,
+    "graph_case_id": "HHG-008"
+  },
+  "evidence_requests": [
+    {
+      "type": "customer_validation",
+      "asked_after_step": 4,
+      "assumed_response": "No reply is assumed. Verification remains pending; no contact was actually sent."
+    }
+  ],
+  "next_best_actions": {
+    "initial": [
+      {
+        "action": "VERIFY_WITH_CUSTOMER",
+        "route": "auto",
+        "reason": "R1/section 5: evidence does not settle authorization; request customer validation before blocking."
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "3a: investigation requests evidence, handles a dispute, or has probability at least 0.30."
+      }
+    ],
+    "final": [
+      {
+        "action": "VERIFY_WITH_CUSTOMER",
+        "route": "auto",
+        "reason": "R1/section 5: evidence does not settle authorization; request customer validation before blocking."
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "3a: investigation requests evidence, handles a dispute, or has probability at least 0.30."
+      }
+    ],
+    "what_changed": "nothing"
+  },
+  "sar": {
+    "file": false,
+    "reason": "Section 3a: confirmed/strongly suspected fraud plus a qualifying exposure or evidenced shared-abuse condition has not been established.",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0,
+    "activity_dates": []
+  },
+  "stop_reason": "Available graph and document evidence has been exhausted; additional retrieval is unlikely to settle authorization. Verification remains pending, with escalation when R8 requires it.",
+  "tool_calls": 9,
+  "tokens": 2821,
+  "latency_s": 59.925
+}
