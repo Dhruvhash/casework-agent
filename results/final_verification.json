@@ -1,0 +1,107 @@
+{
+  "checked_at": "2026-09-21T15:19:48.227266+00:00",
+  "passed": 20,
+  "required": 20,
+  "cases": [
+    {
+      "case_id": "HHG-001",
+      "errors": [],
+      "verified": true
+    },
+    {
+      "case_id": "HHG-002",
+      "errors": [],
+      "verified": true
+    },
+    {
+      "case_id": "HHG-003",
+      "errors": [],
+      "verified": true
+    },
+    {
+      "case_id": "HHG-004",
+      "errors": [],
+      "verified": true
+    },
+    {
+      "case_id": "HHG-005",
+      "errors": [],
+      "verified": true
+    },
+    {
+      "case_id": "HHG-006",
+      "errors": [],
+      "verified": true
+    },
+    {
+      "case_id": "HHG-007",
+      "errors": [],
+      "verified": true
+    },
+    {
+      "case_id": "HHG-008",
+      "errors": [],
+      "verified": true
+    },
+    {
+      "case_id": "HHG-009",
+      "errors": [],
+      "verified": true
+    },
+    {
+      "case_id": "HHG-010",
+      "errors": [],
+      "verified": true
+    },
+    {
+      "case_id": "HHG-011",
+      "errors": [],
+      "verified": true
+    },
+    {
+      "case_id": "HHG-012",
+      "errors": [],
+      "verified": true
+    },
+    {
+      "case_id": "HHG-013",
+      "errors": [],
+      "verified": true
+    },
+    {
+      "case_id": "HHG-014",
+      "errors": [],
+      "verified": true
+    },
+    {
+      "case_id": "HHG-015",
+      "errors": [],
+      "verified": true
+    },
+    {
+      "case_id": "HHG-016",
+      "errors": [],
+      "verified": true
+    },
+    {
+      "case_id": "HHG-017",
+      "errors": [],
+      "verified": true
+    },
+    {
+      "case_id": "HHG-018",
+      "errors": [],
+      "verified": true
+    },
+    {
+      "case_id": "HHG-019",
+      "errors": [],
+      "verified": true
+    },
+    {
+      "case_id": "HHG-020",
+      "errors": [],
+      "verified": true
+    }
+  ]
+}

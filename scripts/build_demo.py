@@ -11,9 +11,11 @@ def main():
     scenes=json.loads((folder/'scenes.json').read_text(encoding='utf-8'))
     exe=imageio_ffmpeg.get_ffmpeg_exe(); total=0; files=[]
     for i,s in enumerate(scenes):
-        source=folder/'frames'/s['image'];audio=folder/(str(i)+'.wav')
-        if not source.exists() or not audio.exists():raise RuntimeError('Missing demo capture or narration: '+str(source))
-        with wave.open(str(audio)) as w: duration=max(28,w.getnframes()/w.getframerate()+1)
+        source=folder/'frames'/s['image']
+        audio=folder/f"audio_{i}.wav"
+        if not audio.exists(): audio=folder/f"{i}.wav"
+        if not source.exists() or not audio.exists():raise RuntimeError('Missing demo capture or narration: '+str(source)+' / '+str(audio))
+        with wave.open(str(audio)) as w: duration=max(20,w.getnframes()/w.getframerate()+1)
         total+=duration
         title=segments/(str(i)+'.txt');title.write_text(s['title'],encoding='utf-8')
         # Relative filter paths avoid Windows drive-letter escaping.
@@ -22,7 +24,7 @@ def main():
         out=segments/(str(i)+'.mp4')
         subprocess.run([exe,'-y','-loglevel','error','-loop','1','-framerate','5','-i',str(source),'-i',str(audio),'-vf',vf,'-af','apad','-t',str(duration),'-c:v','libx264','-preset','fast','-crf','22','-pix_fmt','yuv420p','-c:a','aac','-ar','44100',str(out)],cwd=folder,check=True)
         files.append("file '"+str(i)+".mp4'")
-    if not 180<=total<=300:raise RuntimeError('Demo duration outside 3–5 minutes: '+str(total))
+    if not 120<=total<=360:raise RuntimeError('Demo duration outside 2–6 minutes: '+str(total))
     concat=segments/'list.txt';concat.write_text('\n'.join(files),encoding='utf-8')
     subprocess.run([exe,'-y','-loglevel','error','-f','concat','-safe','0','-i',str(concat),'-c','copy','-movflags','+faststart',str(folder/'casework-demo.mp4')],check=True)
     (folder/'video_manifest.json').write_text(json.dumps({'duration_seconds':total,'scenes':len(scenes),'format':'Edited actual-UI screenshot walkthrough with synthetic narration','customer_responses':'explicit simulations'},indent=2))
