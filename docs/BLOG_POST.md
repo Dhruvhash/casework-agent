@@ -56,6 +56,8 @@ I would calibrate risk estimates on a time-separated historical validation set, 
 
 ## References
 
+- [GitHub Repository](https://github.com/Dhruvhash/casework-agent)
 - [TigerGraph MCP](https://github.com/tigergraph/tigergraph-mcp)
 - [FFIEC red flags](https://bsaaml.ffiec.gov/manual/Appendices/07): contextual guidance that red flags prompt investigation rather than establish guilt.
 - The organizer-provided dataset README supplies the challenge's thresholds, action identifiers and answer contract. Those thresholds are not presented as general legal advice.
+
