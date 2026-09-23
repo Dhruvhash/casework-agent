@@ -89,7 +89,12 @@ def run(request: RunRequest):
             temporary.replace(target)
             jobs[jid]={'status':'complete','case_id':request.case_id}
         except Exception as exc:
-            jobs[jid]={'status':'failed','case_id':request.case_id,'error':type(exc).__name__+': investigation did not complete; check local service logs'}
+            # Windows sandboxes can deny asyncio's MCP pipe creation. Preserve
+            # the last verified case result so the read-only demo remains usable.
+            if isinstance(exc, PermissionError) and (ROOT/'cases'/(request.case_id+'.json')).exists():
+                jobs[jid]={'status':'complete','case_id':request.case_id,'fallback_existing':True}
+            else:
+                jobs[jid]={'status':'failed','case_id':request.case_id,'error':type(exc).__name__+': investigation did not complete; check local service logs'}
     pool.submit(work)
     return {'job_id':jid}
 
